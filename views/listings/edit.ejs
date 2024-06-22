@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+    <h2>Edit the listing</h2>
+
+    <form method="post"
+     action="/listings/<%= listing._id %>?_method=PUT" 
+     novalidate
+      class="needs-validation"
+       enctype="multipart/form-data">
+        <div class="mb-3">
+        <label for="title" class="for-label">Title</label>
+        <input type="text" name="listing[title]" class="form-control" value="<%= listing.title%>" required>
+        <div class="valid-feedback">title looks good</div>
+        </div>
+        <div class="mb-3">
+            <label for="discription" class="for-label">Discription</label>
+        <textarea  name="listing[description]" class="form-control" required><%= listing.description%> </textarea>
+        <div class="invalid-feedback">please enter short description</div>
+        </div>
+        <div class="mb-3">
+            <img src="<%=  listing.image.url%>" alt="" width="100px" >
+        </div>
+        <div class="mb-3">
+         <label class="for-label" for="Image">upload New Image</label>
+        <input type="file" name="listing[image]" class="form-control" >
+        <div class="invalid-feedback">please enter valid  Img URL</div>
+        </div>
+        <div class="row">
+        <Div class="mb-3 col-md-4">
+        <label class="for-label" for="price">Price</label>
+        <input type="number" name="listing[price]"  class="form-control" value="<%= listing.price%>" required>
+        <div class="invalid-feedback">please enter valid price</div>
+    </Div>
+    <div class="mb-3 col-md-8">
+        <label class="for-label" for="country">Country</label>
+        <input type="text" name="listing[country]" class="form-control" value="<%= listing.country%>" required>
+        <div class="invalid-feedback">please enter Valid Country</div>
+     </div>
+     </div>
+     <div class="mb-3">
+        <label class="for-label" for="location"></label>
+        <input type="text" name="listing[location]"  class="form-control" value="<%= listing.location%>" required>
+        <div class="invalid-feedback">please enter valid location</div>
+    </div>
+
+     <button class="btn btn-dark add-btn"> Edit</button>
+        
+    </form>
+</div>
+</div>
+<script src="/js/script.js"></script>
+
